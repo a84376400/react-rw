@@ -1,0 +1,29 @@
+.edit-row{
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px dotted #D5E4F1
+}
+
+.edit-select{
+  margin-top:5px;
+  height: 25px;
+}
+
+.edit-reason{
+  width: 95%;
+  height: 25px;
+  line-height: 100%;
+}
+.edit-time{
+  width: 50%;
+  height: 25px;
+  line-height: 100%;
+}
+.remarks-tit{
+  line-height: 40px;
+  height: 40px;
+}
+.edit-remarks{
+  width: 100%;
+  height: 100px;
+}

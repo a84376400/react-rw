@@ -1,0 +1,45 @@
+.create-row{
+  /* height: 40px; */
+  line-height: 40px;
+}
+
+.create-tit{
+  text-align: right;  
+}
+
+.create-tit.required:before{
+  display: inline-block;
+  margin-right: 4px;
+  content: "*";
+  font-family: SimSun;
+  color: #FA7070;
+}
+.create-input{
+  width: 95%;
+  height: 25px;
+  line-height: 100%;
+}
+
+.create-select{
+  margin-top: 5px;
+  width: 95%;
+  height: 25px;
+}
+
+.time-input{
+  width: 80%;
+}
+
+.create-date{
+  width: 95%;
+}
+
+.create-textarea{
+  width: 95%;
+  height: 50px;
+  line-height: 20px;
+}
+
+.create-row-btn{
+  line-height: 80px;
+}

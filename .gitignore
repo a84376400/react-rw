@@ -1,0 +1,44 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+*-lock.json
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# production
+/build
+/dist
+
+# misc
+.idea/
+.happypack
+
+ncscope.out
+# testfile
+/src/layouts/HeaderAsideFooterResponsiveLayout/Layouttest.jsx
+*.image
+
+build.log
+
+public/video.js/

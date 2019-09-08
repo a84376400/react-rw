@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+	<style type="text/css">
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    #panel{
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background: #fff;
+        padding: 10px;
+        margin: 0px;
+        opacity: 0.9;
+        width: 400px;
+        overflow: auto;
+    }
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wWy2A8K94nhntYTYUHS19RXW"></script>
+	<title>地图展示</title>
+</head>
+<body>
+    <div id="allmap"></div>
+    <div id="panel" class="panel">
+        <h5>xxxxx Monitor Protal System</h5>
+        <div>
+            <!-- Normal Field -->
+            <div class="form-control">
+                <label>Search</label>
+                <input type="text" placeholder="Enter some info" />
+            </div>
+            <ul class="tags">
+                <li class="tag tag-red tag-rounded">Red Tag</li>
+                <li class="tag tag-green tag-rounded">Green Tag</li>
+                <li class="tag tag-orange tag-rounded">Orange Tag</li>
+            </ul>
+            <ul>
+                <li><input type="checkbox" /> Unordered Item 1</li>
+                <li><input type="checkbox" /> Unordered Item 2</li>
+                <li><input type="checkbox" /> Unordered Item 3</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap",{
+        // 关闭底图可点功能
+        enableMapClick: false
+    });    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(119.423735, 32.400432), 15);  // 初始化地图,设置中心点坐标和地图级别
+	//添加地图类型控件
+	// map.addControl(new BMap.NavigationControl());        // 添加平移缩放控件
+	// map.addControl(new BMap.ScaleControl());             // 添加比例尺控件
+	// map.addControl(new BMap.OverviewMapControl());       //添加缩略地图控件
+	map.enableScrollWheelZoom();                         //启用滚轮放大缩小
+    map.disable3DBuilding();
+    
+
+
+    // 获取地图区域的边界
+    var bounds = map.getBounds();
+    // 获取西南角的经纬度信息
+    var sw = bounds.getSouthWest();
+    // 获取东北角的经纬度信息 东边的经度>西边的经度 北边的纬度>南边的纬度
+    var ne = bounds.getNorthEast();
+    // lng为longitute 经度 lat为latitute纬度
+    var lngSpan = ne.lng - sw.lng;
+    var latSpan = ne.lat - sw.lat;
+    var arrMarker = [];
+    var points = [];
+    var options = {
+        size: BMAP_POINT_SIZE_BIG,
+        shape: BMAP_POINT_SHAPE_STAR,
+        color: 'blue'
+    }
+    var getIcon = function(online){
+        return new BMap.Icon(online? "monitor-ok.png": "monitor-error.png", new BMap.Size(32, 32));
+    }
+    for (var i = 0; i < 20; i ++) {
+        // 初始化位置
+        var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7 + 0.15),
+                sw.lat + latSpan * (Math.random() * 0.7 + 0.15));
+        // 变换icon
+        var iconOffsetX = 42;
+        var iconOffsetY = 66;
+
+        var marker = new BMap.Marker(point, { icon: getIcon(0 == i%2) });
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+        map.addOverlay(marker);               // 将标注添加到地图中
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+        // var label = new BMap.Label("i'm:" + i,{offset:new BMap.Size(20,-10)});
+	    // marker.setLabel(label);
+
+        var sContent =
+	`<h4 style='margin:0 0 5px 0;padding:0.2em 0'># ${i} Monitor</h4>` + 
+    `<p style='margin:0;line-height:1.5;'>Argument1: Yes</p>` + 
+    `<p style='margin:0;line-height:1.5;'>Argument2: No</p>` + 
+    `<p style='margin:0;line-height:1.5;'>Argument3: No</p>` + 
+    `<p style='margin:0;line-height:1.5;'>Argument4: Yes</p>` + 
+    `<p style='margin:0;line-height:1.5;'>Argument5: 15</p>` + 
+	"</div>";
+        var infoWindow = new BMap.InfoWindow(sContent);
+        marker.addEventListener("click", function(){ 
+            this.openInfoWindow(infoWindow);
+        })
+        points.push(point)
+    }
+    
+
+    /**/
+
+
+    var styleJson = [{
+            featureType: "land",
+            elementType: "geometry",
+            stylers: {
+                color: "#212121"
+            }
+        }, {
+            featureType: "building",
+            elementType: "geometry",
+            stylers: {
+                color: "#2b2b2b"
+            }
+        }, {
+            featureType: "highway",
+            elementType: "all",
+            stylers: {
+                lightness: -42,
+                saturation: -91
+            }
+        }, {
+            featureType: "arterial",
+            elementType: "geometry",
+            stylers: {
+                lightness: -77,
+                saturation: -94
+            }
+        }, {
+            featureType: "green",
+            elementType: "geometry",
+            stylers: {
+                color: "#1b1b1b"
+            }
+        }, {
+            featureType: "water",
+            elementType: "geometry",
+            stylers: {
+                color: "#181818"
+            }
+        }, {
+            featureType: "subway",
+            elementType: "geometry.stroke",
+            stylers: {
+                color: "#181818"
+            }
+        }, {
+            featureType: "railway",
+            elementType: "geometry",
+            stylers: {
+                lightness: -52,
+                visibility: "off"
+            }
+        }, {
+            featureType: "railway",
+            elementType: "all",
+            stylers: {
+                visibility: "off"
+            }
+        }, {
+            featureType: "subway",
+            elementType: "all",
+            stylers: {
+                visibility: "off"
+            }
+        }, {
+            featureType: "all",
+            elementType: "labels.text.stroke",
+            stylers: {
+                color: "#313131"
+            }
+        }, {
+            featureType: "all",
+            elementType: "labels.text.fill",
+            stylers: {
+                color: "#8b8787"
+            }
+        }, {
+            featureType: "manmade",
+            elementType: "geometry",
+            stylers: {
+                color: "#1b1b1b"
+            }
+        }, {
+            featureType: "local",
+            elementType: "geometry",
+            stylers: {
+                lightness: -75,
+                saturation: -91
+            }
+        }, {
+            featureType: "subway",
+            elementType: "geometry",
+            stylers: {
+                lightness: -65
+            }
+        }, {
+            featureType: "railway",
+            elementType: "all",
+            stylers: {
+                lightness: -40
+            }
+        }, {
+            featureType: "poi",
+            elementType: "all",
+            stylers: {
+                visibility: "off"
+            }
+        }, {
+            featureType: "highway",
+            elementType: "labels.icon",
+            stylers: {
+                visibility: "off"
+            }
+        }]
+	// map.setMapStyle({styleJson:styleJson});
+
+	map.setCurrentCity("西安");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>

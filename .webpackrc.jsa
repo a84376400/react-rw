@@ -1,0 +1,25 @@
+module.exports = (context) => {
+  const { webpack } = context;
+
+  // webpack config
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.(ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
+          loader: 'file-loader',
+        },
+        {
+          test: /\.(swf|ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
+          loader: 'file-loader',
+        }
+      ]
+    }
+    ,
+    plugins: [
+      new webpack.ProvidePlugin({
+        videojs: 'video.js',
+      }),
+    ],
+  };
+};

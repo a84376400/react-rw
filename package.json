@@ -1,0 +1,70 @@
+{
+  "name": "raiwav-fe-react-v2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@antv/data-set": "^0.8.5",
+    "@icedesign/balloon-confirm": "^0.1.6",
+    "@icedesign/base": "^0.2.0",
+    "@icedesign/container": "^0.1.0",
+    "@icedesign/form-binder": "^0.1.4",
+    "@icedesign/icon": "^0.1.1",
+    "@icedesign/img": "^0.1.0",
+    "@icedesign/label": "^0.1.2",
+    "@icedesign/layout": "^0.1.0",
+    "@icedesign/menu": "^0.1.0",
+    "@icedesign/notification": "^1.0.3",
+    "@icedesign/skin": "^0.1.0",
+    "@icedesign/title": "^0.1.1",
+    "@videojs/http-streaming": "^1.9.3",
+    "axios": "^0.18.0",
+    "bizcharts": "3.1.0",
+    "classnames": "^2.2.5",
+    "enquire-js": "^0.1.2",
+    "foundation-symbol": "^0.1.0",
+    "fpmc-jssdk": "^1.0.2",
+    "highcharts": "^7.0.3",
+    "immutable": "^3.8.2",
+    "is-hotkey": "^0.1.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.5.8",
+    "pubsub-js": "^1.6.0",
+    "react": "^16.8.4",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^16.8.4",
+    "react-highcharts": "^16.0.2",
+    "react-iframe": "^1.1.0",
+    "react-monaco-editor": "^0.13.0",
+    "react-router": "^3.2.0",
+    "react-scripts": "2.1.8",
+    "slate": "^0.32.5",
+    "slate-plain-serializer": "^0.5.6",
+    "slate-react": "^0.11.6",
+    "socket.io-client": "^2.1.0",
+    "video.js": "^7.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "make": "./Makefile.sh",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "demo": "./node_modules/.bin/http-server public -d False -s --cors -c-1 -p 8088"
+  },
+  "buildConfig": {
+    "theme": "@icedesign/skin",
+    "entry": "src/index.js"
+  },
+  "title": "raiwei-fe",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

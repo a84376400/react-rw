@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #235669 !important;
+  border:1px solid #61b4c9;
+};
+.overviewItem{
+  flex: 0 0 14%;
+  display: flex;
+  padding: 10px 0;
+};
+.overviewItemTitle{
+  font-size: 12px;
+  line-height: 20px;
+  color: #4fa5ba;
+};
+.overviewItemTotal{
+  font-size: 24px;
+  line-height: 30px;
+  color: #98c1ca;
+};
+.sy{
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.width{
+  width: 50px;
+}

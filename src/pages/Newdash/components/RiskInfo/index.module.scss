@@ -1,0 +1,82 @@
+.title{
+  position: relative;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+}
+.datetime{
+  position: absolute;;
+  right: 10px;
+  color: #9b9b9b;
+  font-size: 12px;
+}
+.desc{
+  padding-bottom: 15px;
+  color: #999;
+  font-size: 13px;
+  line-height: 24px;
+}
+.operator{
+  padding-top: 8px;
+  color: #9b9b9b;
+  font-size: 12px;
+}
+.operatorItem{
+  margin-right: 5px;
+}
+.paginationWrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+.button{
+  margin-right: 10px;
+}
+.wrapperStyle{
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f4f4f4;
+}
+.informationStyle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.tabList{
+  display: flex;
+  flex-direction: row;
+}
+.icon{
+  width: 10px;
+  height: 12px;
+}
+.tabactive{
+  margin-right: 20px;
+  color: #3080FE;
+  cursor: pointer
+}
+.tab{
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.cardContainer {
+  height: 286px !important;
+  background-color: #235669 !important;
+  border:1px solid #61b4c9;
+};
+.cardTitle {
+  position: relative;
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #bfbfbf;
+};
+.more {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  color: #666;
+};
+

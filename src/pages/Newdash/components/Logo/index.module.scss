@@ -1,0 +1,24 @@
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand {
+  display: inline-block;
+  padding: 0 15px;
+  // color: $color-brand1-6;
+  font-size: 34px;
+}
+
+.text {
+  color: #305682;
+  font-size: 30px;
+}
+
+.textcenter{
+  color: #ffffff;
+  font-size: 30px;
+  padding-left: 50px;
+}
